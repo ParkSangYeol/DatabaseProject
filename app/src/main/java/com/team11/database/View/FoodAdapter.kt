@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.searchbyfood.R
+import com.team11.database.R
 
 class FoodAdapter (private val foodDataset: Array<Food>) :
     RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {

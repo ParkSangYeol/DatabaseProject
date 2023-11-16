@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.searchbyfood.R
 import com.team11.database.MainActivity
+import com.team11.database.R
 import com.team11.database.View.FoodAdapter
 
 class HomeFragment : Fragment(){
