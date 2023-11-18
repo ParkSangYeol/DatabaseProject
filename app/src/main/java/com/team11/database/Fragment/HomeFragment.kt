@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.team11.database.Food
 import com.team11.database.MainActivity
 import com.team11.database.R
 import com.team11.database.View.FoodAdapter

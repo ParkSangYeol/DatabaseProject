@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.fir.expressions.FirEmptyArgumentList.arguments
+import org.jetbrains.kotlin.resolve.calls.model.ResolvedCallArgument.DefaultArgument.arguments
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -58,3 +61,4 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
 }
+
