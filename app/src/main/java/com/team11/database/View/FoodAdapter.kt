@@ -1,7 +1,9 @@
 package com.team11.database.View
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.team11.database.Data.*
@@ -11,6 +13,7 @@ class FoodAdapter (private val foodDataset: Array<Food>) :
     RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
         class FoodViewHolder(val view: View) : RecyclerView.ViewHolder(view){
+            val content: LinearLayout = view.findViewById(R.id.content)
             val foodNum: TextView = view.findViewById(R.id.food_num)
             val foodName: TextView = view.findViewById(R.id.food_name)
         }
@@ -24,6 +27,12 @@ class FoodAdapter (private val foodDataset: Array<Food>) :
         override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
             holder.foodNum.text = foodDataset[position].Fnumber.toString()
             holder.foodName.text = foodDataset[position].Fname
+            holder.content.setOnClickListener {
+                // 버튼 클릭시 처리를 진행하는 부분
+                // TODO 버튼 클릭시 팝업되는 fragment를 구현한 뒤, 내부 변수를 설정하고, 해당 fragment를 보여주는 방식으로 구현
+                Log.d("[FoodAdapter]", "content clicked. foodNum = " + foodDataset[position].Fnumber +
+                "foodName = " + foodDataset[position].Fname)
+            }
         }
 
         override fun getItemCount() = foodDataset.size

@@ -12,6 +12,9 @@ interface FoodDao
 
     @Query("SELECT * FROM FOOD WHERE FOOD.Fname = :name")
     fun findFoodByName(name: String?): List<Food>
+
+    @Insert
+    fun insertFood(food: Food)
 }
 
 @Dao

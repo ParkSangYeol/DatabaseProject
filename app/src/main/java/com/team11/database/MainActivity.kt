@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.*
 import com.team11.database.Data.AppDatabase
+import com.team11.database.Data.Food
 import com.team11.database.Fragment.HomeFragment
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         // 데이터베이스 설정
         setDatabase()
+        //loadData()
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView, HomeFragment())
@@ -28,6 +30,15 @@ class MainActivity : AppCompatActivity() {
             AppDatabase::class.java, "database-test2"
         ).allowMainThreadQueries()
             .build()
+    }
+
+    private fun loadData() {
+        // 최초 데이터베이스 실행시에만 동작해야함.
+        // TODO sharedprefernce 또는 별도의 방법을 이용하여 구현 필요.
+        database.FoodDao().insertFood(Food(1, "햄버거"))
+        database.FoodDao().insertFood(Food(2, "피자"))
+        database.FoodDao().insertFood(Food(3, "하와이안 피자"))
+        database.FoodDao().insertFood(Food(4, "닥터 페퍼"))
     }
 
     public fun getDatabase(): AppDatabase {
