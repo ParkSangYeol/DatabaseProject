@@ -18,9 +18,6 @@ class MainActivity : AppCompatActivity() {
         setDatabase()
         //loadData()
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainerView, HomeFragment())
-            .commit()
     }
 
     private fun setDatabase() {
