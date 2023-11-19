@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "FOOD")
 data class Food (
-    @PrimaryKey val Fnumber: Int,
+    @ColumnInfo(name = "Fnumber") @PrimaryKey val Fnumber: Int,
     @ColumnInfo(name = "Fname") var Fname: String
 )
 
