@@ -11,7 +11,7 @@ interface FoodDao
     fun getAll(): List<Food>
 
     @Query("SELECT * FROM FOOD WHERE FOOD.Fname = :name")
-    fun findFoodByName(name: String): List<Food>
+    fun findFoodByName(name: String?): List<Food>
 }
 
 @Dao
@@ -22,12 +22,15 @@ interface IngredientDao{
     fun getAll(): List<Ingredient>
     @Query("SELECT I.Inumber, I.Iname, I.Icondition FROM INGREDIENT AS I, FOOD AS F, CONSISTS_OF AS C " +
             "WHERE I.Inumber = C.Inum AND F.Fnumber = C.Fnum AND F.Fname = :Fname")
-    fun findIngredientByFname(Fname: String?): List<Ingredient>
+    fun findIngredientByFname(Fname: String): List<Ingredient>
 }
 
 @Dao
 interface FPDao
 {
+    @Query("SELECT * FROM FOOD_POISONING AS FP WHERE FP.CAname = :CAname")
+    fun findFpByCAname(CAname: String): List<Food_poisoning>
+
     @Query("SELECT FP.FPnumber, FP.CAname, FP.Temperature, FP.Time, FP.Min_IP, FP.Max_IP FROM FOOD_POISONING AS FP, TRIGGERS AS T, INGREDIENT AS I " +
             "WHERE FP.FPnumber = T.FPnum AND I.Inumber = T.Inum AND I.Iname = :Iname")
     fun findFpByIname(Iname: String): List<Food_poisoning>

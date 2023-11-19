@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.annotation.Nullable
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.util.findColumnIndexBySuffix
 import com.team11.database.MainActivity
 import com.team11.database.R
 import com.team11.database.View.FoodAdapter
@@ -33,9 +37,6 @@ class HomeFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         val db = mainActivity.getDatabase()
 
-//        val food1 = Food(1, "햄버거")
-//        db.FoodDao().insertFood(food1)
-
         // 데이터셋
         val foodDataset = db.FoodDao().getAll()
 
@@ -46,5 +47,27 @@ class HomeFragment : Fragment(){
         val recyclerView = view.findViewById<RecyclerView>(R.id.testRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
+
+        // SearchView 설정
+        val searchView = view.findViewById<SearchView>(R.id.testSearchRecyclerView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                val resultSet = db.FoodDao().findFoodByName(query)
+                adapter = FoodAdapter(resultSet.toTypedArray())
+                recyclerView.adapter = adapter
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                if(newText.equals(""))
+                {
+                    val foodDataset = db.FoodDao().getAll()
+                    adapter = FoodAdapter(foodDataset.toTypedArray())
+                    recyclerView.adapter = adapter
+                }
+                return true
+            }
+        })
+        
     }
 }

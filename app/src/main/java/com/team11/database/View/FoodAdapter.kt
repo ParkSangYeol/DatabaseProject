@@ -15,8 +15,7 @@ class FoodAdapter (private val foodDataset: Array<Food>) :
             val foodName: TextView = view.findViewById(R.id.food_name)
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup,
-                                        viewType: Int): FoodViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
             val content = LayoutInflater.from(parent.context)
                 .inflate(R.layout.recycler_content, parent, false)
             return FoodViewHolder(content)
