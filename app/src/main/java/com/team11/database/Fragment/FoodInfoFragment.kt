@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.team11.database.R
 
 
-class BlankFragment : Fragment() {
+class FoodInfoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +20,7 @@ class BlankFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_blank, container, false)
+        val view = inflater.inflate(R.layout.fragment_food_info, container, false)
         val textView2 = view.findViewById<TextView>(R.id.textView2)
         val textView3 = view.findViewById<TextView>(R.id.textView3)
         textView2.text = requireArguments().getString("Fname")

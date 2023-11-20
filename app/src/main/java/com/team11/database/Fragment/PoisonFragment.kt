@@ -14,7 +14,7 @@ import com.team11.database.MainActivity
 import com.team11.database.R
 import com.team11.database.View.FoodAdapter
 
-class HomeFragment : Fragment() {
+class PoisonFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_poison, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

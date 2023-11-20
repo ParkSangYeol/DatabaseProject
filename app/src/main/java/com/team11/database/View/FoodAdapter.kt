@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.os.bundleOf
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.team11.database.Data.*
@@ -23,7 +22,7 @@ class FoodAdapter (private val foodDataset: Array<Food>) :
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
             val content = LayoutInflater.from(parent.context)
-                .inflate(R.layout.recycler_content, parent, false)
+                .inflate(R.layout.recycler_food, parent, false)
             return FoodViewHolder(content)
         }
 
@@ -36,7 +35,7 @@ class FoodAdapter (private val foodDataset: Array<Food>) :
                 Log.d("[FoodAdapter]", "content clicked. foodNum = " + foodDataset[position].Fnumber +
                 "foodName = " + foodDataset[position].Fname)
                 val bundle = bundleOf("Fnumber" to foodDataset[position].Fnumber, "Fname" to foodDataset[position].Fname)
-                holder.view.findNavController().navigate(R.id.action_homeFragment_to_blankFragment, bundle)
+                holder.view.findNavController().navigate(R.id.action_foodFragment_to_foodInfoFragment, bundle)
             }
         }
 

@@ -2,21 +2,68 @@
 <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    app:startDestination="@id/homeFragment">
-
+    app:startDestination="@id/foodFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.team11.database.Fragment.HomeFragment"
-        android:label="Home Fragment"
-        tools:layout="@layout/home_fragment">
+        android:label="HomeFragment" >
         <action
-            android:id="@+id/action_homeFragment_to_blankFragment"
-            app:destination="@id/blankFragment" />
+            android:id="@+id/action_homeFragment_to_devFragment"
+            app:destination="@id/devFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_ingredientFragment"
+            app:destination="@id/ingredientFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_poisonFragment"
+            app:destination="@id/poisonFragment" />
     </fragment>
     <fragment
-        android:id="@+id/blankFragment"
-        android:name="com.team11.database.Fragment.BlankFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
-
+        android:id="@+id/devFragment"
+        android:name="com.team11.database.Fragment.DevFragment"
+        android:label="fragment_dev"
+        tools:layout="@layout/fragment_dev" />
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.team11.database.Fragment.FoodFragment"
+        android:label="FoodFragment" >
+        <action
+            android:id="@+id/action_foodFragment_to_foodInfoFragment"
+            app:destination="@id/foodInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ingredientFragment"
+        android:name="com.team11.database.Fragment.IngredientFragment"
+        android:label="fragment_ingredient"
+        tools:layout="@layout/fragment_ingredient" >
+        <action
+            android:id="@+id/action_ingredientFragment_to_ingredientInfoFragment"
+            app:destination="@id/ingredientInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/poisonFragment"
+        android:name="com.team11.database.Fragment.PoisonFragment"
+        android:label="fragment_poison"
+        tools:layout="@layout/fragment_poison" >
+        <action
+            android:id="@+id/action_poisonFragment_to_poisonInfoFragment"
+            app:destination="@id/poisonInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ingredientInfoFragment"
+        android:name="com.team11.database.Fragment.IngredientInfoFragment"
+        android:label="fragment_ingredient_info"
+        tools:layout="@layout/fragment_ingredient_info" />
+    <fragment
+        android:id="@+id/foodInfoFragment"
+        android:name="com.team11.database.Fragment.FoodInfoFragment"
+        android:label="fragment_food_info"
+        tools:layout="@layout/fragment_food_info" />
+    <fragment
+        android:id="@+id/poisonInfoFragment"
+        android:name="com.team11.database.Fragment.PoisonInfoFragment"
+        android:label="fragment_poison_info"
+        tools:layout="@layout/fragment_poison_info" />
 </navigation>
