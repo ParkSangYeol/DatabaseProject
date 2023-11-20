@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             applicationContext,
             AppDatabase::class.java, "database-test2"
         ).allowMainThreadQueries()
+            .createFromAsset("myDatabase.db")
             .build()
     }
 

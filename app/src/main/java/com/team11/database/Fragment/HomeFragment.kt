@@ -1,6 +1,7 @@
 package com.team11.database.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +41,13 @@ class HomeFragment : Fragment(){
         // 데이터셋
         val foodDataset = db.FoodDao().getAll()
 
+        // 가져온 데이터 셋 확인
+        Log.d("HomeFragment", "foodDataset size: " + foodDataset.size)
+        var i = 0
+        for (foodData in foodDataset) {
+            Log.d("HomeFragment", "index: " + i++ + "foodData: " + foodDataset.size)
+        }
+        
         // 어댑터 초기화
         adapter = FoodAdapter(foodDataset.toTypedArray())
 

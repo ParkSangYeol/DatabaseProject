@@ -38,6 +38,13 @@ android {
         jvmTarget = "1.8"
     }
 }
+kotlin {
+    sourceSets["main"].kotlin.srcDir("build/generated/ksp/src/main/kotlin")
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
 
 dependencies {
     implementation("androidx.core:core-ktx:1.9.0")
