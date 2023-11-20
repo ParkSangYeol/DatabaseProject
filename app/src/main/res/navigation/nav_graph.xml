@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.team11.database.BlankFragment"
+        android:name="com.team11.database.Fragment.BlankFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank" />
 

@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.team11.database.Data.*
 import com.team11.database.R
@@ -33,7 +35,8 @@ class FoodAdapter (private val foodDataset: Array<Food>) :
                 // TODO 버튼 클릭시 팝업되는 fragment를 구현한 뒤, 내부 변수를 설정하고, 해당 fragment를 보여주는 방식으로 구현
                 Log.d("[FoodAdapter]", "content clicked. foodNum = " + foodDataset[position].Fnumber +
                 "foodName = " + foodDataset[position].Fname)
-                Navigation.findNavController(holder.view).navigate(R.id.action_homeFragment_to_blankFragment)
+                val bundle = bundleOf("Fnumber" to foodDataset[position].Fnumber, "Fname" to foodDataset[position].Fname)
+                holder.view.findNavController().navigate(R.id.action_homeFragment_to_blankFragment, bundle)
             }
         }
 
