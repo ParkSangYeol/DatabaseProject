@@ -1,11 +1,11 @@
 package com.team11.database
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.room.*
 import com.team11.database.Data.AppDatabase
 import com.team11.database.Data.Food
+import com.team11.database.Fragment.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var database: AppDatabase
@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         // 데이터베이스 설정
         setDatabase()
         //loadData()
+
     }
 
     private fun setDatabase() {

@@ -16,6 +16,7 @@ import com.team11.database.*
     Symptom::class,
     Frequency_of_month::class], version = 1
 )
+
 abstract class AppDatabase : RoomDatabase() {
     abstract fun FoodDao(): FoodDao
     abstract fun IngredientDao(): IngredientDao
