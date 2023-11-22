@@ -11,7 +11,7 @@ interface FoodDao
     fun getAll(): List<Food>
 
     @Query("SELECT * FROM FOOD WHERE FOOD.Fname = :name")
-    fun findFoodByName(name: String?): List<Food>
+    fun findFoodByName(name: String): List<Food>
 
     @Insert
     fun insertFood(food: Food)
@@ -23,6 +23,17 @@ interface IngredientDao{
     fun insertIngredient(ingredient: Ingredient)
     @Query("SELECT * FROM INGREDIENT")
     fun getAll(): List<Ingredient>
+
+    @Query("SELECT * FROM INGREDIENT WHERE INGREDIENT.Iname = :name")
+    fun findIngredientByName(name: String): List<Ingredient>
+
+    @Query("SELECT I.Inumber, I.Iname, I.Icondition FROM INGREDIENT AS I, TRIGGERS AS T, FOOD_POISONING AS FP " +
+            "WHERE I.Inumber = T.Inum AND T.FPnum = FP.FPnumber AND I.Iname = :name")
+    fun findIngredientTriggersFpByName(name: String): List<Ingredient>
+
+    @Query("SELECT I.Inumber, I.Iname, I.Icondition FROM INGREDIENT AS I, TRIGGERS AS T, FOOD_POISONING AS FP WHERE I.Inumber = T.Inum AND T.FPnum = FP.FPnumber")
+    fun findIngredientTriggersFp(): List<Ingredient>
+
     @Query("SELECT I.Inumber, I.Iname, I.Icondition FROM INGREDIENT AS I, FOOD AS F, CONSISTS_OF AS C " +
             "WHERE I.Inumber = C.Inum AND F.Fnumber = C.Fnum AND F.Fname = :Fname")
     fun findIngredientByFname(Fname: String): List<Ingredient>
@@ -36,7 +47,7 @@ interface FPDao
 
     @Query("SELECT FP.FPnumber, FP.CAname, FP.Temperature, FP.Time, FP.Min_IP, FP.Max_IP FROM FOOD_POISONING AS FP, TRIGGERS AS T, INGREDIENT AS I " +
             "WHERE FP.FPnumber = T.FPnum AND I.Inumber = T.Inum AND I.Iname = :Iname")
-    fun findFpByIname(Iname: String): List<Food_poisoning>
+    fun findFpByIname(Iname: String?): List<Food_poisoning>
 
     @Query("SELECT * FROM FOOD_POISONING")
     fun getAll(): List<Food_poisoning>
