@@ -1,7 +1,9 @@
 package com.team11.database.Data
 
+import android.content.Context
 import androidx.room.AutoMigration
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.team11.database.*
 
@@ -24,4 +26,23 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun SymptomDao(): SymptomDao
     abstract fun FoMDao(): FoMDao
     abstract fun RDDao(): RDDao
+
+    companion object {
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
+
+        fun getDatabase(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context,
+                    AppDatabase::class.java, "database-test2"
+                ).allowMainThreadQueries()
+                    .createFromAsset("myDatabase.db")
+                    .build()
+                INSTANCE = instance
+                // 반환
+                instance
+            }
+        }
+    }
 }

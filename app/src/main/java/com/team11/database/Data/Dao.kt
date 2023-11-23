@@ -37,6 +37,10 @@ interface IngredientDao{
     @Query("SELECT I.Inumber, I.Iname, I.Icondition FROM INGREDIENT AS I, FOOD AS F, CONSISTS_OF AS C " +
             "WHERE I.Inumber = C.Inum AND F.Fnumber = C.Fnum AND F.Fname = :Fname")
     fun findIngredientByFname(Fname: String): List<Ingredient>
+
+    @Query("SELECT I.Iname FROM INGREDIENT AS I, FOOD AS F, CONSISTS_OF AS C " +
+            "WHERE F.Fnumber = :Fnum AND I.Inumber = C.Inum AND F.Fnumber = C.Fnum")
+    fun findIngredientNameByFnumber(Fnum: Int): List<String>
 }
 
 @Dao

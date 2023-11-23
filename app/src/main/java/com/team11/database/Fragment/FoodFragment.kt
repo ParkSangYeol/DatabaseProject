@@ -46,7 +46,7 @@ class FoodFragment : Fragment(){
         }
         
         // 어댑터 초기화
-        adapter = FoodAdapter(foodDataset.toTypedArray())
+        adapter = FoodAdapter(foodDataset.toTypedArray(), requireContext())
 
         // RecyclerView 설정
         val recyclerView = view.findViewById<RecyclerView>(R.id.testRecyclerView)
@@ -58,7 +58,7 @@ class FoodFragment : Fragment(){
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 val resultSet = db.FoodDao().findFoodByName(query)
-                adapter = FoodAdapter(resultSet.toTypedArray())
+                adapter = FoodAdapter(resultSet.toTypedArray(), requireContext())
                 recyclerView.adapter = adapter
                 return true
             }
@@ -67,7 +67,7 @@ class FoodFragment : Fragment(){
                 if(newText.equals(""))
                 {
                     val foodDataset = db.FoodDao().getAll()
-                    adapter = FoodAdapter(foodDataset.toTypedArray())
+                    adapter = FoodAdapter(foodDataset.toTypedArray(), requireContext())
                     recyclerView.adapter = adapter
                 }
                 return true

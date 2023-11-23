@@ -1,4 +1,5 @@
 package com.team11.database
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,12 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setDatabase() {
         //데이터베이스 지정
-        database = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database-test2"
-        ).allowMainThreadQueries()
-            .createFromAsset("myDatabase.db")
-            .build()
+        database = AppDatabase.getDatabase(applicationContext)
     }
 
     private fun loadData() {
