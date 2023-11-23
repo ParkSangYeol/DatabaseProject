@@ -73,3 +73,10 @@ data class Frequency_of_month (
     @ColumnInfo(name = "Month") val Month: Int,
     @ColumnInfo(name = "Frequency") val Frequency: Int
 )
+
+data class FoodPoisoningInfo(
+    val MaxTemperature: Int,
+    val MaxTime: Int,
+    val Min_IP: Int,
+    val Max_IP: Int
+)

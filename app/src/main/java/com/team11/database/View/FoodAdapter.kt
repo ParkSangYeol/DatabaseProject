@@ -45,16 +45,16 @@ class FoodAdapter(private val foodDataset: Array<Food>, private val context: Con
         // 텍스트 설정
         holder.foodName.text = foodDataset[position].Fname
         val ingredientList = AppDatabase.getDatabase(context).IngredientDao()
-            .findIngredientNameByFnumber(foodDataset[position].Fnumber)
+            .findIngredientByFname(foodDataset[position].Fname)
         Log.d("[FoodAdapter]", "ingredientList Size = " + ingredientList.size)
 
         val ingredient = StringBuilder()
         if (ingredientList.isNotEmpty()) {
-            ingredient.append(ingredientList[0])
+            ingredient.append(ingredientList[0].Iname)
             for (index in 1 until ingredientList.size) {
                 ingredient.append(", ")
-                ingredient.append(ingredientList[index])
-                Log.d("[FoodAdapter]", "ingredientList add = " + ingredientList[index])
+                ingredient.append(ingredientList[index].Iname)
+                Log.d("[FoodAdapter]", "ingredientList add = " + ingredientList[index].Iname)
             }
             Log.d("[FoodAdapter]", "ingredients = " + ingredient.toString())
         }
@@ -74,6 +74,7 @@ class FoodAdapter(private val foodDataset: Array<Food>, private val context: Con
                 "Fnumber" to foodDataset[position].Fnumber,
                 "Fname" to foodDataset[position].Fname
             )
+
             holder.view.findNavController()
                 .navigate(R.id.action_foodFragment_to_foodInfoFragment, bundle)
         }

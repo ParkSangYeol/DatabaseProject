@@ -55,6 +55,17 @@ interface FPDao
 
     @Query("SELECT * FROM FOOD_POISONING")
     fun getAll(): List<Food_poisoning>
+
+    @Query("SELECT FP.CAname FROM FOOD_POISONING AS FP, TRIGGERS AS T, INGREDIENT AS I " +
+            "WHERE FP.FPnumber = T.FPnum AND I.Inumber = T.Inum AND I.Iname = :Iname")
+    fun findFpNameByIname(Iname: String?): List<String>
+
+    @Query("""
+        SELECT MAX(FP.Temperature) AS MaxTemperature, MAX(FP.Time) AS MaxTime, MIN(FP.Min_IP) AS Min_IP, MAX(FP.Max_IP) AS Max_IP
+        FROM FOOD AS F, CONSISTS_OF AS CO, TRIGGERS AS T, FOOD_POISONING AS FP
+        WHERE  F.Fnumber = CO.Fnum AND CO.Inum = T.Inum And T.FPnum = FP.FPnumber AND F.Fname = :Fname
+    """)
+    fun getPoisonInfoByFname(Fname: String): FoodPoisoningInfo
 }
 
 @Dao
