@@ -63,7 +63,7 @@ class FoodInfoFragment : Fragment() {
 
             // 잠복기 설정
             val incubationPeriodView: TextView = view.findViewById<TextView>(R.id.textView_incubation_period)
-            incubationPeriodView.text = "최소 " + poisonInfo.Min_IP + "일에서 최대 " + poisonInfo.Max_IP + "일"
+            incubationPeriodView.text = "최소 " + poisonInfo.Min_IP + "시간에서 최대 " + poisonInfo.Max_IP + "시간"
             
             // 사멸온도 설정
             val deathCondition: TextView = view.findViewById(R.id.textView_death_conditions)
