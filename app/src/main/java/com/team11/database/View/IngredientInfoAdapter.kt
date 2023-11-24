@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.team11.database.Data.AppDatabase
 import com.team11.database.Data.Food_poisoning
 import com.team11.database.Data.Ingredient
 import com.team11.database.R
@@ -28,7 +29,6 @@ class IngredientInfoAdapter (private val fpDataset: Array<Food_poisoning>) :
     }
 
     override fun onBindViewHolder(holder: IngredientInfoViewHolder, position: Int) {
-
         holder.ingredientInfoName.text = fpDataset[position].CAname
         holder.ingredientInfoTempTime.text = getTempTimeStr(fpDataset[position].Temperature.toString(), fpDataset[position].Time.toString())
         holder.ingredientInfoIp.text = getIp(fpDataset[position].Min_IP.toString(), fpDataset[position].Max_IP.toString())
@@ -37,7 +37,7 @@ class IngredientInfoAdapter (private val fpDataset: Array<Food_poisoning>) :
 
     fun getTempTimeStr(temp: String, time: String): String
     {
-        return "사멸온도 : 섭씨 $temp 도, 가열시간: $time 분"
+        return "사멸온도 : 섭씨 $temp 도, 가열시간: $time 초"
     }
 
     fun getIp(minIp: String, maxIp: String): String

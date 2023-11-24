@@ -66,6 +66,10 @@ interface FPDao
         WHERE  F.Fnumber = CO.Fnum AND CO.Inum = T.Inum And T.FPnum = FP.FPnumber AND F.Fname = :Fname
     """)
     fun getPoisonInfoByFname(Fname: String): FoodPoisoningInfo
+
+    @Query("SELECT * FROM FOOD_POISONING WHERE Temperature <= :Temperature ORDER BY Temperature, Time DESC")
+    fun findFpDiedOnTemp(Temperature: Int): List<Food_poisoning>
+
 }
 
 @Dao
