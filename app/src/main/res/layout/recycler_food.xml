@@ -27,11 +27,11 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins_semibold"
-            android:paddingLeft="20dp"
+            android:paddingLeft="16dp"
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="#181A1F"
-            android:textSize="26sp" />
+            android:textSize="24sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_ingredient_button"
@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
             android:orientation="vertical"
-            android:paddingLeft="20dp"
+            android:paddingLeft="16dp"
             android:paddingTop="10dp" />
 
     </LinearLayout>

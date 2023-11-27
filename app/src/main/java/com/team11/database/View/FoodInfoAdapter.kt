@@ -46,7 +46,6 @@ class FoodInfoAdapter(private val ingredientDataset: Array<Ingredient>, private 
             .findFpNameByIname(ingredientDataset[position].Iname)
         holder.ingredientPoison.adapter = ButtonAdapter(poisonList.toTypedArray(), context)
 
-
         holder.content.setOnClickListener {
             // 버튼 클릭시 처리를 진행하는 부분
             val bundle = bundleOf("Inumber" to ingredientDataset[position].Inumber,

@@ -63,11 +63,15 @@ class FoodInfoFragment : Fragment() {
 
             // 잠복기 설정
             val incubationPeriodView: TextView = view.findViewById<TextView>(R.id.textView_incubation_period)
-            incubationPeriodView.text = "최소 " + poisonInfo.Min_IP + "시간에서 최대 " + poisonInfo.Max_IP + "시간"
+            incubationPeriodView.text = poisonInfo.Min_IP.toString() + " 에서 " + poisonInfo.Max_IP + " 일"
             
             // 사멸온도 설정
             val deathCondition: TextView = view.findViewById(R.id.textView_death_conditions)
-            deathCondition.text = poisonInfo.MaxTemperature.toString() + "°C 이상에서 " + poisonInfo.MaxTime + " 분 이상 가열시 사멸"
+            deathCondition.text = poisonInfo.MaxTemperature.toString() + "°C 이상에서\n" + poisonInfo.MaxTime + " 분 이상 가열"
+
+            // 찾은 식재료 수 설정
+            val ingredientNum: TextView = view.findViewById(R.id.textView_numOfIngredient)
+            ingredientNum.text = ingredientDataset.size.toString() + " INGREDIENT found"
         }
         else {
             Log.e("[FoodInfoFragment]", "Fname is null in Bundle")
