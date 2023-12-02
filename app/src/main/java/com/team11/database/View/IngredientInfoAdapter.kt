@@ -41,7 +41,7 @@ class IngredientInfoAdapter (private val fpDataset: Array<Food_poisoning>, priva
         holder.ingredientInfoDisease.adapter = ButtonAdapter(diseaseList.toTypedArray(), context)
 
         val calendar: Calendar = Calendar.getInstance()
-        val month: Int = calendar.get(Calendar.MONTH) + 1
+        val month: Int = calendar.get(Calendar.MONTH)
 
         val numOfSick = AppDatabase.getDatabase(context).FoMDao()
             .getMonthByFPnum(fpDataset[position].FPnumber, month)
@@ -49,8 +49,10 @@ class IngredientInfoAdapter (private val fpDataset: Array<Food_poisoning>, priva
         holder.ingredientInfoNumOfMonth.text = "이번달 발생 건수 : " + numOfSick
 
         holder.ingredientInfoContent.setOnClickListener {
-            val bundle = bundleOf("FPNumber" to fpDataset[position].FPnumber,
-                "CAname" to fpDataset[position].CAname)
+            val bundle = bundleOf(
+                "FPNumber" to fpDataset[position].FPnumber,
+                "NumOfSick" to numOfSick
+            )
             holder.view.findNavController().navigate(R.id.action_ingredientInfoFragment_to_poisonInfoFragment, bundle)
         }
     }
