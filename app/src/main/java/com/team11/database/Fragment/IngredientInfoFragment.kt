@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,11 +42,30 @@ class IngredientInfoFragment : Fragment() {
         val fpDataset = db.FPDao().findFpByIname(Iname)
 
         // 어댑터 초기화
-        adapter = IngredientInfoAdapter(fpDataset.toTypedArray())
+        adapter = IngredientInfoAdapter(fpDataset.toTypedArray(), requireContext())
 
         // RecyclerView 설정
         val recyclerView = view.findViewById<RecyclerView>(R.id.ingredient_info_recycler)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
+
+        // 음식 이름 설정
+        val ingredientName: TextView = view.findViewById(R.id.textView_ingredientName)
+        ingredientName.text = Iname
+
+        // 데이터 가져오기
+        val poisonInfo = db.FPDao().getPoisonInfoByIname(Iname!!)
+
+        // 잠복기 설정
+        val incubationPeriodView: TextView = view.findViewById<TextView>(R.id.textView_ingredient_incubation_period)
+        incubationPeriodView.text = poisonInfo.Min_IP.toString() + " 에서 " + poisonInfo.Max_IP + " 일"
+
+        // 사멸온도 설정
+        val deathCondition: TextView = view.findViewById(R.id.textView_ingredient_death_conditions)
+        deathCondition.text = poisonInfo.MaxTemperature.toString() + "°C 이상에서\n" + poisonInfo.MaxTime + " 분 이상 가열"
+
+        // 찾은 식재료 수 설정
+        val ingredientNum: TextView = view.findViewById(R.id.textView_numOfPoison)
+        ingredientNum.text = fpDataset.size.toString() + " Poison found"
     }
 }

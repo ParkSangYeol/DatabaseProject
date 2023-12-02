@@ -67,6 +67,13 @@ interface FPDao
     """)
     fun getPoisonInfoByFname(Fname: String): FoodPoisoningInfo
 
+    @Query("""
+        SELECT MAX(FP.Temperature) AS MaxTemperature, MAX(FP.Time) AS MaxTime, MIN(FP.Min_IP) AS Min_IP, MAX(FP.Max_IP) AS Max_IP
+        FROM INGREDIENT AS I, TRIGGERS AS T, FOOD_POISONING AS FP
+        WHERE  I.Inumber = T.Inum AND T.FPnum = FP.FPnumber And I.Iname = :Iname
+    """)
+    fun getPoisonInfoByIname(Iname: String): FoodPoisoningInfo
+
     @Query("SELECT * FROM FOOD_POISONING WHERE Temperature <= :Temperature ORDER BY Temperature, Time DESC")
     fun findFpDiedOnTemp(Temperature: Int): List<Food_poisoning>
 
@@ -88,6 +95,9 @@ interface FoMDao
 {
     @Query("SELECT F.FPnum, F.Month, F.Frequency FROM FREQUENCY_OF_MONTH AS F, FOOD_POISONING AS FP WHERE F.FPnum = FP.FPnumber AND FPnumber = :FPnum")
     fun findRdByFPnum(FPnum: Int): List<Frequency_of_month>
+
+    @Query("SELECT F.Frequency FROM FREQUENCY_OF_MONTH AS F, FOOD_POISONING AS FP WHERE F.FPnum = FP.FPnumber AND FPnumber = :FPnum AND F.Month = :Month")
+    fun getMonthByFPnum(FPnum: Int, Month: Int): Int
     @Query("SELECT * FROM FREQUENCY_OF_MONTH")
     fun getAll(): List<Frequency_of_month>
 }
@@ -97,6 +107,9 @@ interface RDDao
 {
     @Query("SELECT R.FPnum, R.Dname FROM RELATED_DISEASE AS R, FOOD_POISONING AS FP WHERE R.FPnum = FP.FPnumber AND FP.FPnumber = :FPnum")
     fun findRdByFPnum(FPnum: Int): List<Related_disease>
+
+    @Query("SELECT R.Dname FROM RELATED_DISEASE AS R, FOOD_POISONING AS FP WHERE R.FPnum = FP.FPnumber AND FP.FPnumber = :FPnum")
+    fun findRDNameByFPnum(FPnum: Int): List<String>
 
     @Query("SELECT * FROM RELATED_DISEASE")
     fun getAll(): List<Related_disease>

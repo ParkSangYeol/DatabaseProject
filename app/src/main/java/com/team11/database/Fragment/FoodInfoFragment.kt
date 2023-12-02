@@ -15,6 +15,7 @@ import com.team11.database.Data.AppDatabase
 import com.team11.database.R
 import com.team11.database.View.FoodAdapter
 import com.team11.database.View.FoodInfoAdapter
+import org.w3c.dom.Text
 
 
 class FoodInfoFragment : Fragment() {
@@ -49,6 +50,10 @@ class FoodInfoFragment : Fragment() {
             for (foodData in ingredientDataset) {
                 Log.d("[FoodInfoFragment]", "index: " + i++ + "ingredientData: " + ingredientDataset.size)
             }
+
+            // 음식 이름 설정
+            val foodName: TextView = view.findViewById(R.id.textView_foodName)
+            foodName.text = fname
 
             // 어댑터 초기화
             adapter = FoodInfoAdapter(ingredientDataset.toTypedArray(), requireContext())

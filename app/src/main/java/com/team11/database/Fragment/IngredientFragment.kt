@@ -42,7 +42,7 @@ class IngredientFragment : Fragment() {
         val ingredientDataset = db.IngredientDao().findIngredientTriggersFp()
 
         // 어댑터 초기화
-        adapter = IngredientAdapter(ingredientDataset.toTypedArray())
+        adapter = IngredientAdapter(ingredientDataset.toTypedArray(), requireContext())
 
         // RecyclerView 설정
         val recyclerView = view.findViewById<RecyclerView>(R.id.ingredient_recycler)
@@ -54,7 +54,7 @@ class IngredientFragment : Fragment() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 val resultSet = db.IngredientDao().findIngredientTriggersFpByName(query)
-                adapter = IngredientAdapter(resultSet.toTypedArray())
+                adapter = IngredientAdapter(resultSet.toTypedArray(), requireContext())
                 recyclerView.adapter = adapter
                 return true
             }
@@ -63,7 +63,7 @@ class IngredientFragment : Fragment() {
                 if(newText.equals(""))
                 {
                     val ingredientDataset = db.IngredientDao().findIngredientTriggersFp()
-                    adapter = IngredientAdapter(ingredientDataset.toTypedArray())
+                    adapter = IngredientAdapter(ingredientDataset.toTypedArray(), requireContext())
                     recyclerView.adapter = adapter
                 }
                 return true

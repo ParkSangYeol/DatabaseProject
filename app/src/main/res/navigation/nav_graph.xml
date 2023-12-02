@@ -57,7 +57,11 @@
         android:id="@+id/ingredientInfoFragment"
         android:name="com.team11.database.Fragment.IngredientInfoFragment"
         android:label="fragment_ingredient_info"
-        tools:layout="@layout/fragment_ingredient_info" />
+        tools:layout="@layout/fragment_ingredient_info" >
+        <action
+            android:id="@+id/action_ingredientInfoFragment_to_poisonInfoFragment"
+            app:destination="@id/poisonInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/foodInfoFragment"
         android:name="com.team11.database.Fragment.FoodInfoFragment"

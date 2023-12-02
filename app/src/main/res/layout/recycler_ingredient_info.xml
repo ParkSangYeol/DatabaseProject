@@ -1,62 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ingredient_info_content"
+    android:id="@+id/content_ingredient_poison"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="5dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginTop="5dp"
-    android:background="@drawable/rounded_square"
+    android:layout_height="140dp"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="7dp"
     android:clickable="true"
     android:focusable="true"
     android:gravity="center_vertical"
-    android:orientation="vertical"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp">
 
-    <TextView
-        android:id="@+id/ingredient_info_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:text="TextView"
-        android:textSize="34sp" />
 
-    <TextView
-        android:id="@+id/ingredient_info1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:text="사멸조건"
-        android:textSize="24sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/ingredient_info_temp_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:text="TextView"
-        android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/ingredient_info2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:text="잠복기"
-        android:textSize="24sp" />
+            <TextView
+                android:id="@+id/text_ingredient_poisonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:paddingLeft="16dp"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="#181A1F"
+                android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/ingredient_info_ip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:text="TextView"
-        android:textSize="20sp" />
+        </LinearLayout>
 
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_poison_disease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_poison_numOfMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins_light"
+                android:paddingLeft="16dp"
+                android:text="이번달 발생 건수 : 0"
+                android:textAlignment="center"
+                android:textColor="#181A1F"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/button_ingredient_state2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center"
+                android:minWidth="60dp"
+                android:minHeight="35dp"
+                android:padding="0dp"
+                android:text="자세히 알아보기"
+                android:textAlignment="center"
+                android:textColor="#181A1F"
+                android:textSize="14sp"
+                app:backgroundTint="#FFEECD"
+                app:iconSize="0dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
