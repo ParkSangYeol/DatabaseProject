@@ -52,7 +52,7 @@ class PoisonAdapter(private val poisonDataset: Array<Food_poisoning>, private va
         val numOfSick = AppDatabase.getDatabase(context).FoMDao()
             .getMonthByFPnum(poisonDataset[position].FPnumber, month)
 
-        holder.poisonNumOfSick.text = "이번달 발생 건수 : " + numOfSick
+        holder.poisonNumOfSick.text = "저번달 발생 건수 : " + numOfSick
 
         holder.content.setOnClickListener {
             // 버튼 클릭시 처리를 진행하는 부분

@@ -1,8 +1,11 @@
 package com.team11.database.Data
 
+import android.database.Cursor
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.RawQuery
+import androidx.sqlite.db.SupportSQLiteQuery
 
 @Dao
 interface FoodDao
@@ -115,4 +118,11 @@ interface RDDao
 
     @Query("SELECT * FROM RELATED_DISEASE")
     fun getAll(): List<Related_disease>
+}
+
+@Dao
+interface DevDao
+{
+    @RawQuery
+    fun getRawQueryResult(query: SupportSQLiteQuery): Cursor
 }

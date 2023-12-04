@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/button_content"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="10dp"
+    android:fontFamily="@font/poppins_light"
+    android:gravity="center"
+    android:minWidth="46dp"
+    android:minHeight="32dp"
+    android:paddingLeft="8dp"
+    android:paddingTop="0dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="0dp"
+    android:textAlignment="center"
+    android:textColor="#181A1F"
+    android:textSize="12sp"
+    app:backgroundTint="#C0CDE7"
+    app:cardCornerRadius="30dp"
+    app:iconSize="0dp">
+
+    <TextView
+        android:id="@+id/textView_devResult"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins_light"
+        android:singleLine="false"
+        android:text="TextView" />
+</androidx.cardview.widget.CardView>

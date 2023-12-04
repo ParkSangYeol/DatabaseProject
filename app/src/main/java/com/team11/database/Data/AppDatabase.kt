@@ -26,6 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun SymptomDao(): SymptomDao
     abstract fun FoMDao(): FoMDao
     abstract fun RDDao(): RDDao
+    abstract fun DevDao(): DevDao
 
     companion object {
         @Volatile

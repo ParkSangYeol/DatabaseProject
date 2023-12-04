@@ -101,7 +101,6 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginBottom="24dp"
-                android:text="살모넬라는 장내세균의 일종이다. 잠복기는 1주에서 1달 가까이 이다. 살모넬라 균은 버터, 우유, 초콜렛 같은 음식에서 장기간 생존할 수 있다."
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -122,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="발생 가능 환경"
+                android:text="예방 방법"
                 android:textAlignment="viewStart"
                 android:textSize="11.5sp"
                 android:textStyle="bold" />
@@ -218,7 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="예방법"
+                android:text="잠복기"
                 android:textSize="11.5sp" />
 
             <TextView

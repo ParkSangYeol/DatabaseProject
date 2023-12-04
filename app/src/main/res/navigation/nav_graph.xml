@@ -25,7 +25,14 @@
         android:id="@+id/devFragment"
         android:name="com.team11.database.Fragment.DevFragment"
         android:label="fragment_dev"
-        tools:layout="@layout/fragment_dev" />
+        tools:layout="@layout/fragment_dev" >
+        <action
+            android:id="@+id/action_devFragment_to_devResultFragment"
+            app:destination="@id/devResultFragment" />
+        <action
+            android:id="@+id/action_devFragment_to_devShowTableFragment"
+            app:destination="@id/devShowTableFragment" />
+    </fragment>
     <fragment
         android:id="@+id/foodFragment"
         android:name="com.team11.database.Fragment.FoodFragment"
@@ -76,4 +83,12 @@
         android:name="com.team11.database.Fragment.PoisonInfoFragment"
         android:label="fragment_poison_info"
         tools:layout="@layout/fragment_poison_info" />
+    <fragment
+        android:id="@+id/devResultFragment"
+        android:name="com.team11.database.Fragment.DevResultFragment"
+        android:label="DevResultFragment" />
+    <fragment
+        android:id="@+id/devShowTableFragment"
+        android:name="com.team11.database.Fragment.DevShowTableFragment"
+        android:label="DevShowTableFragment" />
 </navigation>

@@ -46,7 +46,7 @@ class IngredientInfoAdapter (private val fpDataset: Array<Food_poisoning>, priva
         val numOfSick = AppDatabase.getDatabase(context).FoMDao()
             .getMonthByFPnum(fpDataset[position].FPnumber, month)
 
-        holder.ingredientInfoNumOfMonth.text = "이번달 발생 건수 : " + numOfSick
+        holder.ingredientInfoNumOfMonth.text = "저번달 발생 건수 : " + numOfSick
 
         holder.ingredientInfoContent.setOnClickListener {
             val bundle = bundleOf(

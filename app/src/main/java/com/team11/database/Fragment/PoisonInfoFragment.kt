@@ -53,7 +53,8 @@ class PoisonInfoFragment : Fragment() {
         val poisonName: TextView = view.findViewById(R.id.button_poisonInfo_name)
         poisonName.text = foodPoisoning.CAname
 
-        // TODO 설명 설정하기. 기반은 완성되어 있으나 데이터 베이스에 해당 부분 누락
+        // 설명 설정하기. 기반은 완성되어 있으나 데이터 베이스에 해당 부분 누락
+        // 설명은 생략 하기로 결정 <- 2023.12.04 회의
         // val poisonDescription: TextView = view.findViewById(R.id.text_bacteria_description)
         // poisonDescription.text = ????
 
@@ -69,13 +70,24 @@ class PoisonInfoFragment : Fragment() {
         // 온도 텍스트 설정
         val tempText: TextView = view.findViewById(R.id.text_poisonInfo_temp)
         val temp = "" + foodPoisoning.Temperature + "도"
+        val boilTime = "" + foodPoisoning.Time + "초"
         val spannableString =
-            SpannableString(temp + "는 " + foodPoisoning.CAname + "(으)로 부터 안전한 온도입니다.")
+            SpannableString(foodPoisoning.CAname + "(은)는 " +  temp + "에서 " + boilTime + "이상 가열 시 안전합니다.")
+
+        // 시작 지점 설정
+        val tempStart = foodPoisoning.CAname.length + 5
+        val timeStart = foodPoisoning.CAname.length + temp.length + 8
 
         spannableString.setSpan(
             ForegroundColorSpan(Color.RED),
-            0,
-            temp.length,
+            tempStart,
+            tempStart + temp.length,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            ForegroundColorSpan(Color.RED),
+            timeStart,
+            timeStart + boilTime.length,
             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
         )
         tempText.text = spannableString
@@ -102,9 +114,8 @@ class PoisonInfoFragment : Fragment() {
         }
         diseaseText.text = diseaseString.toString()
 
-        // TODO 예방법 설정하기. 기반은 완성되어 있으나 데이터 베이스에 해당 부분 누락
-        // val preventText: TextView = view.findViewById(R.id.text_poisonInfo_preventive)
-        // preventText.text = ????
-
+        // 잠복기 설정하기. 기반은 완성되어 있으나 데이터 베이스에 해당 부분 누락
+        val preventText: TextView = view.findViewById(R.id.text_poisonInfo_preventive)
+        preventText.text = "잠복기는 " + foodPoisoning.Min_IP+ "일 에서 " + foodPoisoning.Max_IP + "일 입니다."
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.team11.database.R
@@ -23,10 +24,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val button_food = view.findViewById<Button>(R.id.button_food)
-        val button_ingredient = view.findViewById<Button>(R.id.button_ingredient)
-        val button_poison = view.findViewById<Button>(R.id.button_poison)
-        val button_dev = view.findViewById<Button>(R.id.button_dev)
+        val button_food = view.findViewById<CardView>(R.id.button_food)
+        val button_ingredient = view.findViewById<CardView>(R.id.button_ingredient)
+        val button_poison = view.findViewById<CardView>(R.id.button_poison)
+        val button_dev = view.findViewById<CardView>(R.id.button_dev)
 
         button_food.setOnClickListener()
         {
