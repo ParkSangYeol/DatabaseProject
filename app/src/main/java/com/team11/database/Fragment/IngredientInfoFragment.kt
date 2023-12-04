@@ -66,11 +66,11 @@ class IngredientInfoFragment : Fragment() {
 
         // 잠복기 설정
         val incubationPeriodView: TextView = view.findViewById<TextView>(R.id.textView_ingredient_incubation_period)
-        incubationPeriodView.text = poisonInfo.Min_IP.toString() + " 에서 " + poisonInfo.Max_IP + " 일"
+        incubationPeriodView.text = poisonInfo.Min_IP.toString() + " 에서 " + poisonInfo.Max_IP + " 시간"
 
         // 사멸온도 설정
         val deathCondition: TextView = view.findViewById(R.id.textView_ingredient_death_conditions)
-        deathCondition.text = poisonInfo.MaxTemperature.toString() + "°C 이상에서\n" + poisonInfo.MaxTime + " 분 이상 가열"
+        deathCondition.text = poisonInfo.MaxTemperature.toString() + "°C 이상에서\n" + poisonInfo.MaxTime + " 초 이상 가열"
 
         // 찾은 식재료 수 설정
         val ingredientNum: TextView = view.findViewById(R.id.textView_numOfPoison)
