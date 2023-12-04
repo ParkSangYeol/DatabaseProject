@@ -28,7 +28,7 @@ interface IngredientDao{
     fun getAll(): List<Ingredient>
 
     @Query("SELECT * FROM INGREDIENT WHERE INGREDIENT.Iname = :name")
-    fun findIngredientByName(name: String): List<Ingredient>
+    fun findIngredientByName(name: String): Ingredient
 
     @Query("SELECT I.Inumber, I.Iname, I.Icondition FROM INGREDIENT AS I, TRIGGERS AS T, FOOD_POISONING AS FP " +
             "WHERE I.Inumber = T.Inum AND T.FPnum = FP.FPnumber AND I.Iname = :name")

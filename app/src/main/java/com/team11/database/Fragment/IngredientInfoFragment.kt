@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.team11.database.Data.Ingredient
 import com.team11.database.MainActivity
 import com.team11.database.R
 import com.team11.database.View.IngredientInfoAdapter
@@ -38,6 +39,9 @@ class IngredientInfoFragment : Fragment() {
         val db = mainActivity.getDatabase()
         val Iname = requireArguments().getString("Iname")
 
+        // Ingredient 정보 가져오기
+        val ingredient = db.IngredientDao().findIngredientByName(Iname!!)
+
         // 데이터셋
         val fpDataset = db.FPDao().findFpByIname(Iname)
 
@@ -49,9 +53,13 @@ class IngredientInfoFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
 
-        // 음식 이름 설정
+        // 식재료 이름 설정
         val ingredientName: TextView = view.findViewById(R.id.textView_ingredientName)
         ingredientName.text = Iname
+
+        // 식재료 상태 설정하기
+        val ingredientCondition: TextView = view.findViewById(R.id.button_ingredient_state3)
+        ingredientCondition.text = ingredient.Icondition
 
         // 데이터 가져오기
         val poisonInfo = db.FPDao().getPoisonInfoByIname(Iname!!)
