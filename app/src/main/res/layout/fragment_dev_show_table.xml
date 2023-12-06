@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="center"
-        android:src="@drawable/img"
+        android:src="@drawable/schema"
         android:contentDescription="schema에 대한 이미지 입니다." />
 
 </HorizontalScrollView>
