@@ -77,7 +77,7 @@ interface FPDao
     """)
     fun getPoisonInfoByIname(Iname: String): FoodPoisoningInfo
 
-    @Query("SELECT * FROM FOOD_POISONING WHERE Temperature <= :Temperature ORDER BY Temperature, Time DESC")
+    @Query("SELECT * FROM FOOD_POISONING WHERE Temperature <= :Temperature ORDER BY Temperature DESC, Time")
     fun findFpDiedOnTemp(Temperature: Int): List<Food_poisoning>
 
     @Query("SELECT * FROM FOOD_POISONING AS FP WHERE FP.FPnumber = :FPnumber")

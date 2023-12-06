@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
-                android:text="[ 최대 잠복기 ]"
+                android:text="[ 종합 잠복기 ]"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                 android:fontFamily="@font/poppins_light"
                 android:paddingLeft="25dp"
                 android:paddingTop="5dp"
-                android:text="~에서 ~일"
+                android:text="~에서 ~시간"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -91,7 +91,7 @@
                 android:fontFamily="@font/poppins_light"
                 android:paddingLeft="25dp"
                 android:paddingTop="5dp"
-                android:text="~도 이상에서 \n~분 이상가열"
+                android:text="~도 이상에서 \n~초 이상가열"
                 android:textSize="16sp" />
         </LinearLayout>
 
