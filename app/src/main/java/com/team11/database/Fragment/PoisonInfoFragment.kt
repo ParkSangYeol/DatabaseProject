@@ -97,7 +97,7 @@ class PoisonInfoFragment : Fragment() {
         val symptomString = StringBuilder()
         if (symptoms.size > 0) {
             symptomString.append(symptoms[0].Sname)
-            for (i in (1..symptoms.size)) {
+            for (i in (1..symptoms.size - 1)) {
                 symptomString.append(", " + symptoms[i].Sname)
             }
         }
@@ -108,7 +108,7 @@ class PoisonInfoFragment : Fragment() {
         val diseaseString = StringBuilder()
         if (diseases.size > 0) {
             diseaseString.append(diseases[0])
-            for (i in (1..diseases.size)) {
+            for (i in (1..diseases.size - 1)) {
                 symptomString.append(", " + diseases[i])
             }
         }
