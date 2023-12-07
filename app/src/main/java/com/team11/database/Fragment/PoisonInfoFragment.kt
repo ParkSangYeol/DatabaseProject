@@ -116,6 +116,6 @@ class PoisonInfoFragment : Fragment() {
 
         // 잠복기 설정하기. 기반은 완성되어 있으나 데이터 베이스에 해당 부분 누락
         val preventText: TextView = view.findViewById(R.id.text_poisonInfo_preventive)
-        preventText.text = "잠복기는 " + foodPoisoning.Min_IP+ "일 에서 " + foodPoisoning.Max_IP + "일 입니다."
+        preventText.text = "잠복기는 " + foodPoisoning.Min_IP+ "시간 에서 " + foodPoisoning.Max_IP + "시간 입니다."
     }
 }
