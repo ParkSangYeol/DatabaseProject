@@ -109,7 +109,7 @@ class PoisonInfoFragment : Fragment() {
         if (diseases.size > 0) {
             diseaseString.append(diseases[0])
             for (i in (1..diseases.size - 1)) {
-                symptomString.append(", " + diseases[i])
+                diseaseString.append(", " + diseases[i])
             }
         }
         diseaseText.text = diseaseString.toString()
