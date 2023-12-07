@@ -38,12 +38,13 @@ class IngredientInfoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val db = mainActivity.getDatabase()
         val Iname = requireArguments().getString("Iname")
+        val Inumber = requireArguments().getInt("Inumber")
 
         // Ingredient 정보 가져오기
-        val ingredient = db.IngredientDao().findIngredientByName(Iname!!)
+        val ingredient = db.IngredientDao().findIngredientByNumber(Inumber!!)
 
         // 데이터셋
-        val fpDataset = db.FPDao().findFpByIname(Iname)
+        val fpDataset = db.FPDao().findFpByInumber(Inumber)
 
         // 어댑터 초기화
         adapter = IngredientInfoAdapter(fpDataset.toTypedArray(), requireContext())
@@ -62,7 +63,7 @@ class IngredientInfoFragment : Fragment() {
         ingredientCondition.text = ingredient.Icondition
 
         // 데이터 가져오기
-        val poisonInfo = db.FPDao().getPoisonInfoByIname(Iname!!)
+        val poisonInfo = db.FPDao().getPoisonInfoByInumber(Inumber!!)
 
         // 잠복기 설정
         val incubationPeriodView: TextView = view.findViewById<TextView>(R.id.textView_ingredient_incubation_period)

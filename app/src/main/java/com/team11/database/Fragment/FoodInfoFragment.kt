@@ -39,9 +39,10 @@ class FoodInfoFragment : Fragment() {
 
         // 데이터셋
         val fname = requireArguments().getString("Fname")
+        val fnumber = requireArguments().getInt("Fnumber")
         if (fname != null) {
             val database = AppDatabase.getDatabase(context)
-            val ingredientDataset = database.IngredientDao().findIngredientByFname(fname)
+            val ingredientDataset = database.IngredientDao().findIngredientByFnumber(fnumber)
 
 
             // 가져온 데이터 셋 확인
@@ -64,7 +65,7 @@ class FoodInfoFragment : Fragment() {
             recyclerView.adapter = adapter
 
             // 데이터 가져오기
-            val poisonInfo = database.FPDao().getPoisonInfoByFname(fname)
+            val poisonInfo = database.FPDao().getPoisonInfoByFnumber(fnumber)
 
             // 잠복기 설정
             val incubationPeriodView: TextView = view.findViewById<TextView>(R.id.textView_incubation_period)

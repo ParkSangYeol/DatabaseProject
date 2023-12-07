@@ -43,7 +43,7 @@ class FoodInfoAdapter(private val ingredientDataset: Array<Ingredient>, private 
         holder.ingredientName.text = ingredientDataset[position].Iname
         holder.ingredientCondition.text = ingredientDataset[position].Icondition
         val poisonList = AppDatabase.getDatabase(context).FPDao()
-            .findFpNameByIname(ingredientDataset[position].Iname)
+            .findFpNameByInumber(ingredientDataset[position].Inumber)
         holder.ingredientPoison.adapter = ButtonAdapter(poisonList.toTypedArray(), context)
 
         holder.content.setOnClickListener {
