@@ -40,7 +40,8 @@
             android:layout_marginStart="5dp"
             android:orientation="vertical"
             android:paddingLeft="16dp"
-            android:paddingTop="10dp" />
+            android:paddingTop="10dp"
+            android:paddingRight="16dp" />
 
     </LinearLayout>
 

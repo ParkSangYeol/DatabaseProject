@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/content_poison"
     android:layout_width="match_parent"
-    android:layout_height="140dp"
+    android:layout_height="160dp"
     android:layout_marginHorizontal="20dp"
     android:layout_marginVertical="7dp"
     android:clickable="true"
@@ -46,24 +46,6 @@
                 android:layout_height="10dp"
                 android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/button_poison_time"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:fontFamily="@font/poppins_light"
-                android:gravity="center"
-                android:minWidth="60dp"
-                android:minHeight="35dp"
-                android:padding="0dp"
-                android:text="가열시간: 30초"
-                android:textAlignment="center"
-                android:textColor="#181A1F"
-                android:textSize="14sp"
-                app:backgroundTint="#FFEECD"
-                app:iconSize="0dp" />
-
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -73,7 +55,8 @@
             android:layout_marginStart="5dp"
             android:orientation="vertical"
             android:paddingLeft="16dp"
-            android:paddingTop="10dp" />
+            android:paddingTop="10dp"
+            android:paddingRight="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,7 +83,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/button_ingredient_state2"
+                android:id="@+id/button_poison_time"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
